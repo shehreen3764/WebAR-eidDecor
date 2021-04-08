@@ -36,8 +36,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       <details open>
         <summary>Demonstation</summary>
         <p>
-          This sample demonstrates the view of how the decor would look on real-world surfaces. Tap the blue circle to place the decor. 
-          
+          Welcome to augmented reality view for eid decoration by as saff foundation. 
+		  <br> This feature is available with Google Chrome browser in any android device. 
+		  For iOS devices, use WebXR viewer  browser to view: <a href = "https://apps.apple.com/ca/app/webxr-viewer/id1295998056" WebXR Viewer </a>
+
+		<br><br> Tap the button below to view in augmented reality. If this button is disabled on your android device, please update your google play services for AR. 
+		For any other issues contact us via email: assafffoundation@gmail.com
         </p>
       </details>
     </header>
@@ -67,7 +71,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       arObject.visible = false;
       scene.addNode(arObject);
 
-      let decor = new Gltf2Node({url: 'decor/emissionDecor.glb'});
+      let decor = new Gltf2Node({url: 'decor/emissionDecor1.glb'});
 	  vec3.set(decor.scale, 0.15, 0.15, 0.15);
       arObject.addNode(decor);
 
