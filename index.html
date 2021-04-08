@@ -29,15 +29,15 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <link rel='icon' type='image/png' sizes='96x96' href='favicon-96x96.png'>
     <link rel='stylesheet' href='css/common.css'>
 
-    <title>Hit Test</title>
+    <title>Eid Decoration</title>
   </head>
   <body>
     <header>
       <details open>
-        <summary>Hit Test</summary>
+        <summary>Demonstation</summary>
         <p>
-          This sample demonstrates use of hit testing to place virtual objects on real-world surfaces.
-          <a class="back" href="./">Back</a>
+          This sample demonstrates the view of how the decor would look on real-world surfaces. Tap the blue circle to place the decor. 
+          
         </p>
       </details>
     </header>
@@ -47,7 +47,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       import {Renderer, createWebGLContext} from './js/render/core/renderer.js';
       import {Node} from './js/render/core/node.js';
       import {Gltf2Node} from './js/render/nodes/gltf2.js';
-      //import {DropShadowNode} from './js/render/nodes/drop-shadow.js';
+      import {DropShadowNode} from './js/render/nodes/drop-shadow.js';
       import {vec3} from './js/render/math/gl-matrix.js';
       import {Ray} from './js/render/math/ray.js';
 
@@ -67,9 +67,9 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       arObject.visible = false;
       scene.addNode(arObject);
 
-      let flower = new Gltf2Node({url: 'untitledAR.glb'});
-	  vec3.set(flower.scale, 0.15, 0.15, 0.15);
-      arObject.addNode(flower);
+      let decor = new Gltf2Node({url: 'untitledAR1.glb'});
+	  vec3.set(decor.scale, 0.15, 0.15, 0.15);
+      arObject.addNode(decor);
 
       let reticle = new Gltf2Node({url: 'reticle/reticle.gltf'});
       reticle.visible = false;
@@ -77,12 +77,12 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
       // Having a really simple drop shadow underneath an object helps ground
       // it in the world without adding much complexity.
-      //let shadow = new DropShadowNode();
-      //vec3.set(shadow.scale, 0.15, 0.15, 0.15);
-      //arObject.addNode(shadow);
+      let shadow = new DropShadowNode();
+      vec3.set(shadow.scale, 0.15, 0.15, 0.15);
+      arObject.addNode(shadow);
 
-      const MAX_FLOWERS = 1;
-      let flowers = [];
+      const MAX_DECORS = 1;
+      let decorArray = [];
 
       // Ensure the background is transparent for AR.
       scene.clear = false;
@@ -160,19 +160,19 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
       // Adds a new object to the scene at the
       // specified transform.
       function addARObjectAt(matrix) {
-        let newFlower = arObject.clone();
-        newFlower.visible = true;
-        newFlower.matrix = matrix;
-        scene.addNode(newFlower);
+        let newDecor = arObject.clone();
+        newDecor.visible = true;
+        newDecor.matrix = matrix;
+        scene.addNode(newDecor);
 
-        flowers.push(newFlower);
+        decorArray.push(newDecor);
 
         // For performance reasons if we add too many objects start
         // removing the oldest ones to keep the scene complexity
         // from growing too much.
-        if (flowers.length > MAX_FLOWERS) {
-          let oldFlower = flowers.shift();
-          scene.removeNode(oldFlower);
+        if (decorArray.length > MAX_DECORS) {
+          let oldDecor = decorArray.shift();
+          scene.removeNode(oldDecor);
         }
       }
 
