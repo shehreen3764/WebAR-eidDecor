@@ -30,22 +30,25 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
     <link rel='stylesheet' href='css/common.css'>
 
     <title>Eid Decoration</title>
+	<style>
+		h1 {text-align: center; color: white;}
+		body{background-color: black; font-family: verdana;}
+		a:link {color: pink;}
+		a:visited {color: yellow;}
+		a:hover {color: red;}
+		a:active {color: powderblue;}
+	</style>
   </head>
   <body>
+  
     <header>
-      <details open>
-        <summary><b>Welcome</b></summary>
-        <p>
-          Welcome to As Saff Foundation's augmented reality viewer. The button below will allow you to view the eid decoration used in our "Eid Decoration Activity" book. 
-		  <br><br>Please move your camera slowly until a blue circle appears and once it does click on it to place the decoration. 
-		<br><br> <i style="font-size:12px;">This feature is available with Google Chrome browser on any android device. 
-		  For iOS devices, use <a href = "https://apps.apple.com/ca/app/webxr-viewer/id1295998056"> WebXR Viewer.</a> 
-		  You might experience lower resolution in iOS devices. We are in process of improving your experience in the upcoming update.
-		<br>If the button is disabled on your android device, please update your Google Play Services for AR. 
-		For any other issues contact us at <a href = "mailto:assafffoundation@gmail.com"> As Saff Foundation </a> </i>
-        </p>
-		<br><br><br>
-      </details>
+    <h1>Welcome</h1>
+        <p style="color:white;">
+			Upon entering AR, move your camera slowly until a blue circle appears. Click on it to place the decoration. 
+			<br><br> <i style="font-size:12px;">Use Google Chrome browser for Android devices. If the button is disabled on your android device, please update your Google Play Services for AR. 
+			Use <a href = "https://apps.apple.com/ca/app/webxr-viewer/id1295998056"> WebXR Viewer</a> for iOS devices.
+			<br><a href = "mailto:assafffoundation@gmail.com"> Contact Us </a> </i>
+        </p>  
     </header>
     <script type="module">
       import {WebXRButton} from './js/util/webxr-button.js';
